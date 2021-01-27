@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['@/plugins/query.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -66,6 +66,9 @@ export default {
       auth: true, // Just as example. Can be any other service.
       firestore: true
     }
+  },
+  router: {
+    middleware: 'auth'
   },
   /*
    ** Axios module configuration

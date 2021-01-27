@@ -1,15 +1,42 @@
 <template>
-  <div
-    class="flex flex-col items-center justify-center w-full min-h-screen px-3 py-2 mx-auto text-white max-w-7xl"
-  >
-    <div class="font-bold tracking-tighter text-9xl">Stream.</div>
+  <div class="container">
+    <div class="text-2xl font-medium"></div>
+    <pre class="text-sm">
+      {{ user }}
+    </pre>
+    <div class="w-20 h-20 rounded-full overflow-hidden">
+      <img
+        class="w-full h-full object-cover object-center"
+        :src="user.avatar"
+        alt=""
+      />
+    </div>
+    <AppBtn class="mt-5" @click="logout">
+      Logout
+    </AppBtn>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  mounted() {
-    console.log(this.$fire)
+  layout: 'protected',
+
+  computed: {
+    ...mapGetters('user', ['user'])
+  },
+  methods: {
+    ...mapActions('user', ['userLogout']),
+
+    async logout() {
+      try {
+        await this.userLogout()
+        this.$router.push('/login')
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 }
 </script>

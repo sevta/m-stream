@@ -16,6 +16,7 @@
     "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/google-fonts": "^1.2.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "@tailwindcss/forms": "^0.2.1",
     "firebase": "^8.2.4",
     "nuxt": "^2.0.0"
   },
