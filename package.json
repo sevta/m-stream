@@ -12,13 +12,20 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/composition-api": "^0.19.1",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/firebase": "^7.4.1",
     "@nuxtjs/google-fonts": "^1.2.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@tailwindcss/forms": "^0.2.1",
+    "express": "^4.17.1",
     "firebase": "^8.2.4",
-    "nuxt": "^2.0.0"
+    "moment": "^2.29.1",
+    "nuxt": "^2.0.0",
+    "spotify-web-api-node": "^5.0.2",
+    "vue-slider-component": "^3.2.11",
+    "yt-player": "^3.5.0",
+    "ytsr": "^3.2.4"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^3.4.2",

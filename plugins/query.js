@@ -36,4 +36,36 @@ export default ({ app }, inject) => {
       throw error
     }
   })
+
+  inject('getAllUsers', async uid => {
+    if (!uid) return null
+    try {
+      const users = await app.$fire.firestore
+        .collection('users')
+        .where('uid', '!=', uid)
+        .get()
+      console.log(users)
+      if (users.docs.length) return users.docs.map(user => user.data())
+      return []
+    } catch (error) {
+      throw error
+    }
+  })
+
+  inject('getRequestFollow', async uid => {
+    try {
+      const reqFollow = await app.$fire.firestore
+        .collection('request_to_follow')
+        .doc(uid)
+        .collection('users')
+        .get()
+      console.log(reqFollow)
+      if (!reqFollow.empty) {
+        return reqFollow.docs.map(user => user.data())
+      }
+      return null
+    } catch (error) {
+      throw error
+    }
+  })
 }

@@ -1,5 +1,5 @@
 export default {
-  mode: 'spa',
+  mode: 'universal',
   /*
    ** Headers of the page
    */
@@ -27,14 +27,15 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/query.js'],
+  plugins: ['@/plugins/query.js', '@/plugins/vue-slider.js'],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/composition-api'
   ],
   googleFonts: {
     /* module options */
@@ -67,6 +68,7 @@ export default {
       firestore: true
     }
   },
+  serverMiddleware: [{ path: '/api', handler: '@/api/index.js' }],
   router: {
     middleware: 'auth'
   },

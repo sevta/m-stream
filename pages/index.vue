@@ -1,42 +1,32 @@
 <template>
-  <div class="container">
-    <div class="text-2xl font-medium"></div>
-    <pre class="text-sm">
-      {{ user }}
-    </pre>
-    <div class="w-20 h-20 rounded-full overflow-hidden">
-      <img
-        class="w-full h-full object-cover object-center"
-        :src="user.avatar"
-        alt=""
-      />
+  <div class="">
+    <div class="mt-5">
+      <div class="">
+        <AppSearchMusic />
+      </div>
+      <div>
+        <div class="text-4xl font-medium tracking-tighter mb-5">
+          Explore
+        </div>
+        <div class="grid grid-cols-5 gap-5">
+          <AppMusicCard
+            thumbnail="https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/12/Fleetwood-Mac-Rumours-album-covers-billboard-1000x1000.jpg?auto=format&q=60&fit=max&w=930"
+            author="Artist"
+            title="Song Name"
+          />
+        </div>
+      </div>
     </div>
-    <AppBtn class="mt-5" @click="logout">
-      Logout
-    </AppBtn>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-
+import { onMounted } from '@nuxtjs/composition-api'
 export default {
-  layout: 'protected',
-
-  computed: {
-    ...mapGetters('user', ['user'])
-  },
-  methods: {
-    ...mapActions('user', ['userLogout']),
-
-    async logout() {
-      try {
-        await this.userLogout()
-        this.$router.push('/login')
-      } catch (error) {
-        console.log(error)
-      }
-    }
+  setup() {
+    onMounted(() => {
+      console.log('mount')
+    })
   }
 }
 </script>

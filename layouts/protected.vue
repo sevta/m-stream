@@ -3,7 +3,11 @@
     class="relative protected w-full min-h-screen bg-white wrapper font-inter"
   >
     <div v-if="!loading">
-      <nuxt />
+      <div class="flex">
+        <div class="flex-1 py-7 px-10">
+          <nuxt />
+        </div>
+      </div>
     </div>
     <div v-else>Loading...</div>
   </div>
@@ -36,7 +40,7 @@ export default {
           console.log(error)
         }
       } else {
-        this.$router.push('/login')
+        // this.$router.push('/login')
       }
       this.loading = false
     })
